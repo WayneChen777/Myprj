@@ -121,7 +121,7 @@
         methods: {
             loginCheck: function () {
                 let self = this;
-                axios.post("/Account/Login", self.loginData).then(function (res) {
+                axios.post("/Account/Login", self.loginData, "/SendMail/SendMail").then(function (res) {
                     if (res.data == 200) {
                         alert("登入成功");
                         window.location.href = "/Home/Index";

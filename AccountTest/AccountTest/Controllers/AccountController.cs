@@ -10,13 +10,14 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using AccountTest.Services;
 
 namespace AccountTest.Controllers
 {
     public class AccountController : Controller
     {
         private AppDb _appdb;
-        public AccountController(AppDb  appDb )
+        public AccountController(AppDb  appDb)
         {
             _appdb = appDb;
         }
@@ -54,6 +55,16 @@ namespace AccountTest.Controllers
             {
                 return false;
             }
+        }
+
+        public ActionResult SendMail()
+        {
+            var mails = new string[] { "silcy1111@gmail.com" };
+            var mailhelper = new Mailhelper();
+            mailhelper.CreateMail(mails, "標題", "<h1>辛辛苦苦寄信</h1>");
+            mailhelper.Send();
+
+            return Content("寄信");
         }
 
         [HttpPost]

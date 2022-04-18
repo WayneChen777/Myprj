@@ -7,21 +7,20 @@ using System.Net.Mail;
 using AccountTest.Models;
 using MimeKit;
 using MailKit.Net.Smtp;
+using AccountTest.Services;
 
 namespace AccountTest.Controllers
 {
     public class SendMailController : Controller
     {
-        private readonly AppDb _appDb;
-        public SendMailController(AppDb appDb)
+        public ActionResult SendMail()
         {
-            _appDb = appDb;
-        }
-        public async Task< IActionResult> SendMailer()
-        {
-            EmailSender emailSender = new EmailSender();
-            
-            return Ok();
+            var mails = new string[] { "silcy1111@gmail.com" };
+            var mailhelper = new Mailhelper();
+            mailhelper.CreateMail(mails, "標題", "<h1>辛辛苦苦寄信</h1>");
+            mailhelper.Send();
+
+            return Content("寄信");
         }
     }
 }
