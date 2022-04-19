@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using AccountTest.Services;
+using AccountTest.Models.ViewModels;
 
 namespace AccountTest.Controllers
 {
@@ -49,6 +50,10 @@ namespace AccountTest.Controllers
                     Password = registerViewModel.Password
                 });
                 _appdb.SaveChanges();
+
+                var mailhelper = new Mailhelper();
+                mailhelper.CreateMail(registerViewModel.Email, "標題", "<h1>辛辛苦苦寄信</h1>");
+                mailhelper.Send();
                 return true;
             }
             else
@@ -56,16 +61,16 @@ namespace AccountTest.Controllers
                 return false;
             }
         }
+        //[HttpPost]
+        //public IActionResult SendMail([FromBody] RegisterViewModel mails)
+        //{
+        //    //var mails = new string[] { "silcy1111@gmail.com" };
+        //    var mailhelper = new Mailhelper();
+        //    mailhelper.CreateMail(mails.Email, "標題", "<h1>辛辛苦苦寄信</h1>");
+        //    mailhelper.Send();
 
-        public ActionResult SendMail()
-        {
-            var mails = new string[] { "silcy1111@gmail.com" };
-            var mailhelper = new Mailhelper();
-            mailhelper.CreateMail(mails, "標題", "<h1>辛辛苦苦寄信</h1>");
-            mailhelper.Send();
-
-            return Content("寄信");
-        }
+        //    return Content("寄信");
+        //}
 
         [HttpPost]
         public async Task<IActionResult> LoginAsync([FromBody]Models.ViewModels.LoginViewModel loginViewModel)

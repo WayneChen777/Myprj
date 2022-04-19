@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Wayne\\Documents\\GitHub\\Myprj\\AccountTest\\AccountTest\\AccountTest.csproj": {}
+    "C:\\Users\\Tibame_T14\\Documents\\GitHub\\Myprj\\AccountTest\\AccountTest\\AccountTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Wayne\\Documents\\GitHub\\Myprj\\AccountTest\\AccountTest\\AccountTest.csproj": {
+    "C:\\Users\\Tibame_T14\\Documents\\GitHub\\Myprj\\AccountTest\\AccountTest\\AccountTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Wayne\\Documents\\GitHub\\Myprj\\AccountTest\\AccountTest\\AccountTest.csproj",
+        "projectUniqueName": "C:\\Users\\Tibame_T14\\Documents\\GitHub\\Myprj\\AccountTest\\AccountTest\\AccountTest.csproj",
         "projectName": "AccountTest",
-        "projectPath": "C:\\Users\\Wayne\\Documents\\GitHub\\Myprj\\AccountTest\\AccountTest\\AccountTest.csproj",
-        "packagesPath": "C:\\Users\\Wayne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Wayne\\Documents\\GitHub\\Myprj\\AccountTest\\AccountTest\\obj\\",
+        "projectPath": "C:\\Users\\Tibame_T14\\Documents\\GitHub\\Myprj\\AccountTest\\AccountTest\\AccountTest.csproj",
+        "packagesPath": "C:\\Users\\Tibame_T14\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tibame_T14\\Documents\\GitHub\\Myprj\\AccountTest\\AccountTest\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Wayne\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Tibame_T14\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }
