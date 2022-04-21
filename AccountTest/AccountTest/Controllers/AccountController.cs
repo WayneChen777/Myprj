@@ -30,8 +30,6 @@ namespace AccountTest.Controllers
         {
             return View();
         }
-
-        
         public bool Register([FromBody] Models.ViewModels.RegisterViewModel registerViewModel)
         {
             var userRegister = _appdb.Users.FirstOrDefault(x => x.Email == registerViewModel.Email);
@@ -50,9 +48,12 @@ namespace AccountTest.Controllers
                     Password = registerViewModel.Password
                 });
                 _appdb.SaveChanges();
-
+                var url = "https://localhost:44324/Account/OpenAccount?Email=" + registerViewModel.Email;
                 var mailhelper = new Mailhelper();
-                mailhelper.CreateMail(registerViewModel.Email, "標題", "<h1>辛辛苦苦寄信</h1>");
+                mailhelper.CreateMail(
+                    registerViewModel.Email, 
+                    "標題", 
+                    "<h1>恭喜註冊成功,請點選下列連結驗證!</h1>" + "\r\n" + $"<h3>{url}</h3>");
                 mailhelper.Send();
                 return true;
             }
@@ -60,6 +61,18 @@ namespace AccountTest.Controllers
             {
                 return false;
             }
+        }
+
+        [HttpPost]
+        public IActionResult OpenAccount([FromQuery] RegisterViewModel registerViewModel)
+        {
+            var openstate = _appdb.Users.FirstOrDefault(x => x.Email == registerViewModel.Email);
+            if (openstate != null)
+            {
+                openstate.State = true;
+                _appdb.SaveChanges();
+            }
+            return Ok();
         }
         //[HttpPost]
         //public IActionResult SendMail([FromBody] RegisterViewModel mails)

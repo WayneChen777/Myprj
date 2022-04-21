@@ -45,5 +45,10 @@ namespace AccountTest.Services
             mail.Body = body;
             this.mailMessage = mail;
         }
+
+        internal void CreateMail(string email, string v, object body)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
